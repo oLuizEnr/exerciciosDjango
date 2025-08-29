@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo_pagina %}{% endblock titulo_pagina %}</title>
+</head>
+<body>
+    <header>
+        {% block paginas_viajaveis %}{% endblock paginas_viajaveis %}
+    </header>
+    <main>
+        {% block conteudo %}
+        <h1>Ops! Não conseguimos relacionar o conteúdo da página...</h1>
+        {% endblock conteudo %}
+    </main>
+    <footer>
+        <h1>Todos os direitos reservados</h1>
+    </footer>
+</body>
+</html>

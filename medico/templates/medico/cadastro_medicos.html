@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block titulo_pagina %}Cadastro de médicos{% endblock titulo_pagina %}
+
+{% block paginas_viajaveis %}
+<a href="/">Página inicial</a>
+<a href="">Cadastro de especialidades</a>
+{% endblock paginas_viajaveis %}
+
+{% block conteudo %}
+<div class="form">
+    <input type="text" id="nome" placeholder="Insira o nome do médico">
+    <label for="nome">Nome do médico:</label>
+
+    <input type="text" id="endereco" placeholder="Insira o endereço do médico">
+    <label for="endereco">Endereço do médico:</label>
+
+    <input type="text" id="tel" placeholder="Insira o telefone do médico">
+    <label for="tel">Telefone do médico:</label>
+
+    <input type="text" id="email" placeholder="Insira o email do médico">
+    <label for="email">e-mail do médico:</label>
+
+    <input type="text" id="ddn" placeholder="Insira a data de nascimento do médico">
+    <label for="ddn">Data de nascimento do médico:</label>
+
+    {% for especialidade in especialidades %}
+    <input type="text">
+    {% endfor %}
+</div>
+{% endblock conteudo %}
