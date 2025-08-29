@@ -18,6 +18,6 @@ class Medico(models.Model):
     especialidade = models.ManyToManyField(Especialidade)
 
     def __str__(self):
-        return f"Médico(a): {self.nome_medico}. Especialidades: {", ".join([e.nome_especialidade for e in self.especialidade.all()])}"
+        return f"Médico(a): {self.nome_medico}. Especialidades: {", ".join(e.nome_especialidade for e in self.especialidade.all())}"
     
 # Código de Luiz Enrique
