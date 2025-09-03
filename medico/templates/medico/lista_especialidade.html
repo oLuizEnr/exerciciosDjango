@@ -1,0 +1,31 @@
+{% extends "medico/base.html"%}
+{% load static %}
+
+{% block titulo_pagina %}Lista de Especialidades{% endblock titulo_pagina %}
+
+{% block paginas_viajaveis %}
+<a href="../cadastroE/">Cadastro de especialidades</a>
+<a href="../cadastroM/">Cadastro de médicos</a>
+<a href="../listaM/">Lista de médicos</a>
+{% endblock paginas_viajaveis %}
+
+{% block titulo %}<h1>Lista de especialidades</h1>{% endblock titulo %}
+
+{% block conteudo %}
+<div class="lists-grid">
+    {% for especialidade in especialidades %}
+    <div class="list-card">
+        <div class="info">
+            <div class="title">{{ especialidade.nome_especialidade }}</div>
+            <div class="subtitle">{{ especialidade.descricao_especialidade }}</div>
+        </div>
+        <div class="actions">
+            <a href="../editarE/{{ especialidade.id }}">Editar</a>
+            <a href="../excluirE/{{ especialidade.id }}">Excluir</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock conteudo %}
+
+<!-- Luiz Enrique -->

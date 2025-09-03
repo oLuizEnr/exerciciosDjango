@@ -1,0 +1,24 @@
+{% extends "medico/base.html" %}
+{% load static %}
+
+{% block titulo_pagina %}Cadastro de Especialidades{% endblock titulo_pagina %}
+
+{% block paginas_viajaveis %}
+<a href="../cadastroM/">Cadastro de médicos</a>
+<a href="../listaE/">Lista de especialidades</a>
+<a href="../listaM/">Lista de médicos</a>
+{% endblock paginas_viajaveis %}
+
+{% block titulo %}<h1>Cadastro de especialidade</h1>{% endblock titulo %}
+
+{% block conteudo %}
+<div class="form">
+    <label for="nome">Nome da especialidade:</label><br>
+    <input type="text" id="nome" placeholder="Insira o nome da especialidade" required><br><br>
+    <label for="descricao">Descrição da especialidade:</label><br>
+    <input type="text" id="descricao" placeholder="Insira a descrição da especialidade" required><br><br>
+    <button>Enviar</button>
+</div>
+{% endblock conteudo %}
+
+<!-- Luiz Enrique -->
