@@ -1,0 +1,14 @@
+{% extends "medico/base.html" %}
+
+{% block titulo %}<h1>Editar Médico</h1>{% endblock titulo %}
+
+{% block conteudo %}
+    <div class="container mt-4">
+        <h2>Novo Medico</h2>
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Editar</button>
+        </form>
+    </div>
+{% endblock conteudo %}

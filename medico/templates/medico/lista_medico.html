@@ -3,12 +3,6 @@
 
 {% block titulo_pagina %}Lista de Médicos{% endblock titulo_pagina %}
 
-{% block paginas_viajaveis %}
-<a href="../cadastroE/">Cadastro de especialidades</a>
-<a href="../cadastroM/">Cadastro de médicos</a>
-<a href="../listaE/">Lista de especialidades</a>
-{% endblock paginas_viajaveis %}
-
 {% block titulo %}<h1>Lista de médicos</h1>{% endblock titulo %}
 
 {% block conteudo %}
@@ -26,8 +20,8 @@
             </div>
         </div>
         <div class="actions">
-            <a href="../editarM/{{ medico.id }}">Editar</a>
-            <a href="../excluirM/{{ medico.id }}">Excluir</a>
+            <a href="../atualizarM/{{ medico.id }}">Editar</a>
+            <a href="../deletarM/{{ medico.id }}">Excluir</a>
         </div>
     </div>
     {% endfor %}

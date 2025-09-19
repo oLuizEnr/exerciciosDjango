@@ -6,4 +6,9 @@ class MedicoForm(forms.ModelForm):
         model = Medico
         fields = "__all__"
 
+class EspecialidadeForm(forms.ModelForm):
+    class Meta:
+        model = Especialidade
+        fields = "__all__"
+
 # Luiz Enrique
