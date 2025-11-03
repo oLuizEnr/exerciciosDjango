@@ -3,65 +3,60 @@ from .models import Especialidade, Medico
 from .forms import MedicoForm, EspecialidadeForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 # Create your views here.
-# def cadastrar_especialidades(request):
-#     return render(request, "medico/cadastro_especialidade.html", )
-    
-class AtualizarEspecialidade(UpdateView):
+
+class AtualizarEspecialidade(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     model = Especialidade
     form_class = EspecialidadeForm
     template_name = "medico/editar_especialidade.html"
     success_url = reverse_lazy('lista_esp')
+    permission_required = 'medico.change_especialidade'
 
-class CadastroEspecialidade(CreateView):
+class CadastroEspecialidade(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     model = Especialidade
     form_class = EspecialidadeForm
     template_name = "medico/cadastro_especialidade.html"
     success_url = reverse_lazy('lista_esp')
+    permission_required = 'medico.add_medico'
 
-class DeletarEspecialidade(DeleteView):
+class DeletarEspecialidade(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     model = Especialidade
     template_name = "medico/excluir_especialidade.html"
     success_url = reverse_lazy('lista_esp')
+    permission_required = 'medico.delete_medico'
 
-class ListaEspecialidade(ListView):
+class ListaEspecialidade(PermissionRequiredMixin, LoginRequiredMixin, ListView):
     model = Especialidade
     template_name = "medico/lista_especialidade.html"
     context_object_name = "especialidades"
+    permission_required = 'medico.view_medico'
 
-# def listar_especialidades(request):
-#     especialidades = Especialidade.objects.all()
-#     return render(request, "medico/lista_especialidade.html", {"especialidades": especialidades})
-
-class AtualizarMedico(UpdateView):
+class AtualizarMedico(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     model = Medico
     form_class = MedicoForm
     template_name = "medico/editar_medico.html"
     success_url = reverse_lazy('lista_med')
+    permission_required = 'medico.change_medico'
 
-class CadastroMedico(CreateView):
+class CadastroMedico(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     model = Medico
     form_class = MedicoForm
     template_name = "medico/cadastro_medico.html"
     success_url = reverse_lazy('lista_med')
+    permission_required = 'medico.add_medico'
 
-class DeletarMedico(DeleteView):
+class DeletarMedico(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     model = Medico
     template_name = "medico/excluir_medico.html"
     success_url = reverse_lazy('lista_med')
+    permission_required = 'medico.delete_medico'
 
-class ListaMedico(ListView):
+class ListaMedico(PermissionRequiredMixin, LoginRequiredMixin, ListView):
     model = Medico
     template_name = "medico/lista_medico.html"
     context_object_name = "medicos"
-
-# def cadastrar_medicos(request):
-#     form = MedicoForm()
-#     return render(request, "medico/cadastro_medico.html", {"form": form})
-
-# def listar_medicos(request):
-#     medicos = Medico.objects.all()
-#     return render(request, "medico/lista_medico.html", {"medicos": medicos})
+    permission_required = 'medico.view_medico'
 
 # Luiz Enrique

@@ -10,10 +10,24 @@
 </head>
 <body>
     <header>
+        <a href="../cadastroE/">Cadastro de especialidades</a>
+        <a href="../cadastroM/">Cadastro de médicos</a>
         <a href="../listaE/">Lista de especialidades</a>
-        <a href="../listaM/">Lista de médicos</a>
+        <a href="../">Lista de médicos</a>
     </header>
     <main>
+        {% if user.is_authenticated %}
+        <h1>Bem vindo {{ user.username }}</h1>
+        <h2>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Sair</button>
+            </form>
+        </h2>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+
         {% block titulo %}Essa não é uma página{% endblock titulo %}
         {% block conteudo %}
         <h1>Ops! Não conseguimos relacionar o conteúdo da página...</h1>
