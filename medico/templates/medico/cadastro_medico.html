@@ -6,11 +6,13 @@
 {% block titulo %}<h1>Cadastro de médicos</h1>{% endblock titulo %}
 
 {% block conteudo %}
-<form class="form" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Salvar</button>
-</form>
+<div class="form">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Salvar</button>
+    </form>
+</div>
 {% endblock conteudo %}
 
 <!-- Luiz Enrique -->

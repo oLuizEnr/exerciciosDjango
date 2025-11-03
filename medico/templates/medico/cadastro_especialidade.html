@@ -6,11 +6,13 @@
 {% block titulo %}<h1>Cadastro de especialidade</h1>{% endblock titulo %}
 
 {% block conteudo %}
-<form class="form" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Salvar</button>
-</form>
+<div class="form">
+    <label for="nome">Nome da especialidade:</label><br>
+    <input type="text" id="nome" placeholder="Insira o nome da especialidade" required><br><br>
+    <label for="descricao">Descrição da especialidade:</label><br>
+    <input type="text" id="descricao" placeholder="Insira a descrição da especialidade" required><br><br>
+    <button>Enviar</button>
+</div>
 {% endblock conteudo %}
 
 <!-- Luiz Enrique -->

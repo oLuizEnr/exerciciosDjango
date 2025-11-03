@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from medico import views
-from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,7 +27,5 @@ urlpatterns = [
     path('atualizarM/<int:pk>/', views.AtualizarMedico.as_view()),
     path('cadastroM/', views.CadastroMedico.as_view()),
     path('deletarM/<int:pk>/', views.DeletarMedico.as_view()),
-    path('', views.ListaMedico.as_view(), name='lista_med'),
-    path('login/', LoginView.as_view(template_name='medico/login.html'), name='login'),
-    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path('listaM/', views.ListaMedico.as_view(), name='lista_med'),
 ]
